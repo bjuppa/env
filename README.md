@@ -17,7 +17,7 @@ $ composer require fewagency/env
 require_once __DIR__.'/../vendor/autoload.php';
 
 // Load the .env file and make the env() function global
-Fewagency/Env::load(__DIR__.'/../');
+Fewagency/Env/Env::load(__DIR__.'/../');
 
 // Then use the env() function to pull out environment variables
 $db_user = env('DB_USER', 'default-user');
