@@ -21,6 +21,7 @@ class Env
     public static function init($path, $file = '.env')
     {
         $lines = self::dotenv($path, $file)->load();
+        self::publishEnvFunction();
 
         return $lines;
     }
@@ -74,5 +75,13 @@ class Env
         }
 
         return self::$dotenv;
+    }
+
+    /**
+     * Attempt to publish the env() function globally
+     */
+    public static function publishEnvFunction()
+    {
+        require_once(__DIR__ . '/env_function.php');
     }
 }
