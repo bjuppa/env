@@ -13,18 +13,20 @@ $ composer require fewagency/env
 ## Usage
 
 ``` php
-// Require the Composer autoloader - if not already done by your framework
+// Require the Composer autoloader - if not already included by your framework
 require_once __DIR__.'/../vendor/autoload.php';
 
 // Load the .env file and make the env() function global
-Fewagency/Env/Env::load(__DIR__.'/../');
+Fewagency/Env/Env::init(__DIR__.'/../');
 
 // Then use the env() function to pull out environment variables
 $db_user = env('DB_USER', 'default-user');
 ```
 
-## Testing
+## Development
+Run `composer create-project` to create the test `.env` from `.env.example`.
 
+### Run tests
 ``` bash
 $ composer test
 ```
