@@ -1,7 +1,6 @@
-# env
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+# Consumer for .env files in PHP
+You want to use [`vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv) but also need an `env()` helper function?
+This is the package you're looking for.
 
 ## Install
 
@@ -14,7 +13,13 @@ $ composer require fewagency/env
 ## Usage
 
 ``` php
+// Require the Composer autoloader - if not already done by your framework
+require_once __DIR__.'/../vendor/autoload.php';
+
+// Load the .env file and make the env() function global
 Fewagency/Env::load(__DIR__.'/../');
+
+// Then use the env() function to pull out environment variables
 $db_user = env('DB_USER', 'default-user');
 ```
 
@@ -23,6 +28,10 @@ $db_user = env('DB_USER', 'default-user');
 ``` bash
 $ composer test
 ```
+
+## Inspiration
+We came across this package that did almost what we wanted to but not quite:
+https://github.com/oscarotero/env
 
 ## License
 
