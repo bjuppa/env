@@ -9,5 +9,7 @@ class EnvTest extends \PHPUnit_Framework_TestCase
         $lines = Env::init(__DIR__ . '/../');
 
         $this->assertContains('EXAMPLE=test', $lines);
+
+        $this->assertEquals('test', Env::env('EXAMPLE'));
     }
 }
