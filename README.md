@@ -23,7 +23,7 @@ Load the `.env` file and make the `env()` function global
 If `.env` is not in your project root directory, you can specify a path to the directory as a parameter to `init()`.
 
 ``` php
-Fewagency/Env/Env::init();
+\Fewagency\Env\Env::init();
 ```
 
 Then use the `env()` function to pull out environment variables with an (optional) default value.
