@@ -7,7 +7,7 @@ use Dotenv\Dotenv;
 class Env
 {
     /**
-     * @var Dotenv
+     * @var Dotenv singleton instance
      */
     protected static $dotenv;
 
@@ -20,7 +20,7 @@ class Env
      */
     public static function init($path, $file = '.env')
     {
-        $lines = self::dotenv($path, $file)->load();
+        $lines = self::load($path, $file);
         self::publishEnvFunction();
 
         return $lines;
@@ -62,6 +62,28 @@ class Env
     }
 
     /**
+     * Load .env file
+     *
+     * @param $path
+     * @param $file
+     * @return array
+     */
+    public static function load($path, $file = '.env')
+    {
+        $lines = self::dotenv($path, $file)->load();
+
+        return $lines;
+    }
+
+    /**
+     * Attempt to publish the env() function globally
+     */
+    public static function publishEnvFunction()
+    {
+        require_once(__DIR__ . '/env_function.php');
+    }
+
+    /**
      * Get the singleton Dotenv instance
      *
      * @param null   $path
@@ -75,13 +97,5 @@ class Env
         }
 
         return self::$dotenv;
-    }
-
-    /**
-     * Attempt to publish the env() function globally
-     */
-    public static function publishEnvFunction()
-    {
-        require_once(__DIR__ . '/env_function.php');
     }
 }
