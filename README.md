@@ -32,6 +32,10 @@ Then use the `env()` function to pull out environment variables with an (optiona
 $db_user = env('DB_USER', 'default_db_user');
 ```
 
+## Inspiration
+We came across this package that did almost what we wanted to but not quite:
+https://github.com/oscarotero/env
+
 ## Development
 Run `composer create-project` to create the test `.env` from `.env.example`.
 
@@ -39,10 +43,6 @@ Run `composer create-project` to create the test `.env` from `.env.example`.
 ``` bash
 $ composer test
 ```
-
-## Inspiration
-We came across this package that did almost what we wanted to but not quite:
-https://github.com/oscarotero/env
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
