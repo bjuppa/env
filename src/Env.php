@@ -18,7 +18,7 @@ class Env
      * @param string $file
      * @return array
      */
-    public static function init($path, $file = '.env')
+    public static function init($path = null, $file = '.env')
     {
         $lines = self::load($path, $file);
         self::publishEnvFunction();
@@ -68,7 +68,7 @@ class Env
      * @param $file
      * @return array
      */
-    public static function load($path, $file = '.env')
+    public static function load($path = null, $file = '.env')
     {
         $lines = self::dotenv($path, $file)->load();
 
@@ -93,6 +93,10 @@ class Env
     public static function dotenv($path = null, $file = '.env')
     {
         if (empty(self::$dotenv)) {
+            if (is_null($path)) {
+                // Default path to the root composer project above the vendor directory
+                $path = __DIR__ . str_repeat('/..', 4) . '/';
+            }
             self::$dotenv = new Dotenv($path, $file);
         }
 
