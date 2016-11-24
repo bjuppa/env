@@ -35,8 +35,10 @@ class Env
      */
     public static function env($key, $default = null)
     {
+        //The implementation of this function is totally inspired by laravel/framework
         $value = getenv($key);
         if ($value === false) {
+            //TODO: in laravel/framework this default value is interpreted if it's a callable, nice feature to add!
             return $default;
         }
         switch (strtolower($value)) {
