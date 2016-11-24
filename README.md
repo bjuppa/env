@@ -3,7 +3,6 @@ You want to use [`vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv) but al
 This is the package you're looking for.
 
 ## Install
-
 Via Composer
 
 ``` bash
@@ -11,16 +10,26 @@ $ composer require fewagency/env
 ```
 
 ## Usage
+Add a `.env` file to the root of your project.
+Read more about that [at `vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv).
+
+Require the Composer autoloader - if not already included by your framework
 
 ``` php
-// Require the Composer autoloader - if not already included by your framework
 require_once __DIR__.'/../vendor/autoload.php';
+```
 
-// Load the .env file and make the env() function global
-Fewagency/Env/Env::init(__DIR__.'/../');
+Load the `.env` file and make the `env()` function global
+If `.env` is not in your project root directory, you can specify a path to the directory as a parameter to `init()`.
 
-// Then use the env() function to pull out environment variables
-$db_user = env('DB_USER', 'default-user');
+``` php
+Fewagency/Env/Env::init();
+```
+
+Then use the `env()` function to pull out environment variables with an (optional) default value.
+
+``` php
+$db_user = env('DB_USER', 'default_db_user');
 ```
 
 ## Development
@@ -36,5 +45,4 @@ We came across this package that did almost what we wanted to but not quite:
 https://github.com/oscarotero/env
 
 ## License
-
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
