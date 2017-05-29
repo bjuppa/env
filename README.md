@@ -19,7 +19,7 @@ Require the Composer autoloader - if not already included by your framework
 require_once __DIR__.'/../vendor/autoload.php';
 ```
 
-Load the `.env` file and make the `env()` function global
+Load the `.env` file and make the `env()` function global.
 If `.env` is not in your project root directory, you can specify a path to the directory as a parameter to `init()`.
 
 ``` php
